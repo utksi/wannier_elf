@@ -4,7 +4,6 @@ import glob
 from ase.io.xsf import read_xsf, write_xsf
 
 def calculate_electron_density(xsf_files):
-    """Calculate electron density from Wannier functions."""
     density = None
     atoms = None
     origin = None
@@ -42,7 +41,6 @@ def calculate_electron_density(xsf_files):
     return density, origin, span_vectors, atoms
 
 def main():
-    # Get all .xsf files in the current directory
     xsf_files = glob.glob('wannier*.xsf')
     
     if not xsf_files:
@@ -52,7 +50,6 @@ def main():
     print(f"Found {len(xsf_files)} Wannier function files.")
 
     try:
-        # Calculate electron density
         density, origin, span_vectors, atoms = calculate_electron_density(xsf_files)
 
         # Save data in NumPy format
@@ -61,7 +58,7 @@ def main():
 
         # Write electron density to XSF file using ASE
         with open('electron_density.xsf', 'w') as f:
-            write_xsf(f, [atoms], data=density)
+            write_xsf(f, [atoms], data=density, origin=origin, span_vectors=span_vectors)
 
         print("\nFinal results:")
         print(f"Electron density shape: {density.shape}")
@@ -70,7 +67,6 @@ def main():
         print(atoms.cell)
         print(f"Number of atoms: {len(atoms)}")
         print("Atomic numbers:")
-        #Print atomic numbers
         print(atoms.get_atomic_numbers())
 
         print("\nElectron density saved to 'electron_density.xsf' and 'electron_density.npy'")
