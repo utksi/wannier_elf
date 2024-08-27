@@ -1,27 +1,35 @@
-import numpy as np  # noqa: F401
+#%%
+import numpy as np
 from ase.io.xsf import read_xsf, write_xsf
 
-def calculate_elf(tau_p, tau_h):
+def calculate_elf(pauli_ke_density, heg_ke_density):
     """Calculate the Electron Localization Function (ELF)."""
-    return 1 / (1 + (tau_p / tau_h)**2)
+    # Calculate ELF using the given formula
+    elf = 1 / (1 + (pauli_ke_density / heg_ke_density)**2)
+    return elf
 
 def main():
-    # Load Pauli kinetic energy density
-    tau_p, origin, cell, atoms, atom_types = read_xsf('pauli_kinetic_energy_density.xsf')
-    
-    # Load homogeneous electron gas kinetic energy density
-    tau_h, _, _, _, _ = read_xsf('homogeneous_electron_gas_ke_density.xsf')
-    
-    print(f"Loaded Pauli kinetic energy density shape: {tau_p.shape}")
-    print(f"Loaded homogeneous electron gas kinetic energy density shape: {tau_h.shape}")
-    
-    # Calculate ELF
-    elf = calculate_elf(tau_p, tau_h)
-    
+    # Load the Pauli kinetic energy density from the .npy file
+    pauli_ke_density = np.load('pauli_ke_density.npy')
+
+    # Load the HEG kinetic energy density from the .npy file
+    heg_ke_density = np.load('heg_ke_density.npy')
+
+    # Open the electron density XSF file and read the metadata
+    with open('electron_density.xsf', 'r') as f:
+        _, origin, span_vectors, atoms = read_xsf(f, read_data=True)
+
+    # Calculate the ELF
+    elf = calculate_elf(pauli_ke_density, heg_ke_density)
+
+    # Save ELF to .npy file
+    np.save('elf.npy', elf)
+
     # Write ELF to XSF file
-    write_xsf('electron_localization_function.xsf', elf, origin, cell, atoms, atom_types)
-    
-    print("Electron Localization Function (ELF) saved to 'electron_localization_function.xsf'")
+    with open('elf.xsf', 'w') as f:
+        write_xsf(f, [atoms], data=elf, origin=origin, span_vectors=span_vectors)
+
+    print("Electron Localization Function saved to 'elf.xsf' and 'elf.npy'")
 
 if __name__ == "__main__":
     main()
