@@ -25,9 +25,9 @@ Calculates ELF (and all the stuff in between wannier functions and ELF) with wan
    $
 
 5. **Electron Localization Function (ELF)**:
-   $
+   ```math
    \text{ELF}(\mathbf{r}) = \frac{1}{1 + \left(\frac{\tau_p(\mathbf{r})}{\tau_h(\mathbf{r})}\right)^2}
-   $
+   ```
    ELF is a dimensionless quantity ranging from 0 to 1, indicating electron localization.
    This form in a localized basis is identical to LOL (Localized orbital locator).
 
