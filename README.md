@@ -4,8 +4,7 @@ Calculates ELF (and all the stuff in between wannier functions and ELF) with wan
 
 ## Equations
 
-Given wannier function ```math 
-w_n(\mathbf{r})```, we can get:
+Given wannier function $w_n(\mathbf{r})$, we can get:
 
 1. **Electron Density**: 
    ```math
