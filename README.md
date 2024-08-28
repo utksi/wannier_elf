@@ -5,33 +5,35 @@ Calculates ELF (and all the stuff in between wannier functions and ELF) with wan
 ## Equations
 
 1. **Electron Density**: 
-   \[
+   $$
    \rho(\mathbf{r}) = 2 \sum_n |w_n(\mathbf{r})|^2
-   \]
+   $$
 
 2. **Kinetic Energy Density**:
-   \[
+   $$
    \tau(\mathbf{r}) = \frac{1}{2} \sum_n |\nabla w_n(\mathbf{r})|^2
-   \]
+   $$
 
 3. **Pauli Kinetic Energy Density**:
-   \[
+   $$
    \tau_p(\mathbf{r}) = \tau(\mathbf{r}) - \frac{1}{8} \frac{|\nabla\rho(\mathbf{r})|^2}{\rho(\mathbf{r})}
-   \]
+   $$
 
 4. **Homogeneous Electron Gas Kinetic Energy Density**:
-   \[
+   $$
    \tau_h(\mathbf{r}) = \frac{3}{10}(3\pi^2)^{2/3} \rho(\mathbf{r})^{5/3}
-   \]
+   $$
 
 5. **Electron Localization Function (ELF)**:
-   \[
+   $$
    \text{ELF}(\mathbf{r}) = \frac{1}{1 + \left(\frac{\tau_p(\mathbf{r})}{\tau_h(\mathbf{r})}\right)^2}
-   \]
+   $$
    ELF is a dimensionless quantity ranging from 0 to 1, indicating electron localization.
    This form in a localized basis is identical to LOL (Localized orbital locator).
 
 ## Order of Execution
+ 
+This is for personal use so there is no CLI.
 
 1. **Calculate Electron Density**: 
    - **Script**: `e_density.py`
@@ -58,7 +60,7 @@ Calculates ELF (and all the stuff in between wannier functions and ELF) with wan
    - **Description**: Computes the ELF using the Pauli and HEG kinetic energy densities.
    - **Output**: `elf.npy`, `elf.xsf`
 
-6. **Interactive Visualization**:
+6. **Visualization**:
    - **Script**: `plot_slice.py`
    - **Description**: Plots slices of ELF along different planes (XY, YZ, ZX) at depth = 0.5.
    - **Output**: Writes .png files.
