@@ -5,24 +5,24 @@ Calculates ELF (and all the stuff in between wannier functions and ELF) with wan
 ## Equations
 
 1. **Electron Density**: 
-   $
+   ```math
    \rho(\mathbf{r}) = 2 \sum_n |w_n(\mathbf{r})|^2
-   $
+   ```
 
 2. **Kinetic Energy Density**:
-   $
+   ```math
    \tau(\mathbf{r}) = \frac{1}{2} \sum_n |\nabla w_n(\mathbf{r})|^2
-   $
+   ```
 
 3. **Pauli Kinetic Energy Density**:
-   $
+   ```math
    \tau_p(\mathbf{r}) = \tau(\mathbf{r}) - \frac{1}{8} \frac{|\nabla\rho(\mathbf{r})|^2}{\rho(\mathbf{r})}
-   $
+   ```
 
 4. **Homogeneous Electron Gas Kinetic Energy Density**:
-   $
+   ```math
    \tau_h(\mathbf{r}) = \frac{3}{10}(3\pi^2)^{2/3} \rho(\mathbf{r})^{5/3}
-   $
+   ```
 
 5. **Electron Localization Function (ELF)**:
    ```math
