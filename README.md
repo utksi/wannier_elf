@@ -6,7 +6,7 @@ Calculates ELF (and all the stuff in between wannier functions and ELF) with wan
 
 Given a set of wannier functions $\{\{w_n(\mathbf{r})\}\}$, we can get:
 
-$$ D = -2*\sum{\psi^* \nabla^2\psi} + \frac{1}{2}\nabla^2 n  -  \frac{1}{4*n}\left(\nabla n\right)^2 .$$\\
+$$D = -2*\sum{w_n^* \nabla^2w_n} + \frac{1}{2}\nabla^2 n  -  \frac{1}{4*n}\left(\nabla n\right)^2 .$$\\
 
 $$D_{H} = 0.3*\left(6*\pi^2\right)^{2/3}*n_{\alpha}^{5/3} .$$\\
 
