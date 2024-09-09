@@ -2,7 +2,7 @@
 
 Calculates ELF (and all the stuff in between wannier functions and ELF) with wannier orbitals.
 
-## Equations
+## What?
 
 Given a set of wannier functions $\{\{w_n(\mathbf{r})\}\}$, we can get [See Nature, 371(1994)683-686](https://www.nature.com/articles/371683a0) for a non spin-polarized system:
 
@@ -12,7 +12,7 @@ $$D_{H} = 0.6*\left(6*\pi^2\right)^{2/3}*n^{5/3} .$$
 
 $$ELF\ (r) = \frac{1}{1 + \bigg(\frac{D}{D_H}\bigg)^2} .$$
 
-## How to:
+## How?
  
 This is for personal use so there is no CLI.
 
