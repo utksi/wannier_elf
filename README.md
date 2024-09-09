@@ -10,7 +10,7 @@ $$D = -2*\sum{w_n^* \nabla^2w_n} + \frac{1}{2}\nabla^2 n  -  \frac{1}{4*n}\left(
 
 $$D_{H} = 0.6*\left(6*\pi^2\right)^{2/3}*n^{5/3} .$$
 
-$$ELF(r) = \frac{1}{1 + \bigg(\frac{D}{D_H}\bigg)^2} .$$
+$$ELF (r) = \frac{1}{1 + \bigg(\frac{D}{D_H}\bigg)^2} .$$
 
 ## Order of Execution
  
