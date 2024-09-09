@@ -4,7 +4,7 @@ Calculates ELF (and all the stuff in between wannier functions and ELF) with wan
 
 ## Equations
 
-Given a set of wannier functions $\{\{w_n(\mathbf{r})\}\}$, we can get: [See Nature, 371(1994)683-686](https://www.nature.com/articles/371683a0)
+Given a set of wannier functions $\{\{w_n(\mathbf{r})\}\}$, we can get [See Nature, 371(1994)683-686](https://www.nature.com/articles/371683a0) for a non spin-polarized system:
 
 $$D = -2*\sum{w_n^* \nabla^2w_n} + \frac{1}{2}\nabla^2 n  -  \frac{1}{4*n}\left(\nabla n\right)^2 .$$
 
