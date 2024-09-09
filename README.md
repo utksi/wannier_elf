@@ -12,7 +12,7 @@ $$D_{H} = 0.6*\left(6*\pi^2\right)^{2/3}*n^{5/3} .$$
 
 $$ELF\ (r) = \frac{1}{1 + \bigg(\frac{D}{D_H}\bigg)^2} .$$
 
-## Order of Execution
+## How to:
  
 This is for personal use so there is no CLI.
 
@@ -27,7 +27,10 @@ This is for personal use so there is no CLI.
    - **Description**: Plots slices of ELF along different planes (XY, YZ, ZX) at depth = 0.5.
    - **Output**: Writes .png files.
 
-6. **Interactive Visualization**:
+3. **VESTA/pyMOL/VMD/Ovito**:
+   - Visualize the 'elf.xsf' file in anything that supports it.
+
+4. **Interactive slice**:
    - **Script**: `interactive_slice.py`
    - **Description**: Provides interactive visualization of ELF slices using Plotly, allowing exploration along different planes (XY, YZ, ZX).
    - **Output**: Interactive plot displayed in a web browser.
