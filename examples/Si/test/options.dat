@@ -1,0 +1,5 @@
+symmetrize_ke=y
+use_fft=y
+normalize=n
+interpolate=n
+mask=n
