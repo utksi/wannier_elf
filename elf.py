@@ -1,14 +1,16 @@
 import glob
+
 import numpy as np
-from scipy.fftpack import fftn, ifftn
-from scipy.interpolate import interpn
-from scipy.ndimage import gaussian_filter
-from ase.units import Bohr
+import spglib
 from ase.io import write
 from ase.io.xsf import iread_xsf
 from ase.spacegroup import get_spacegroup
-import spglib
+from ase.units import Bohr
+from scipy.fftpack import fftn, ifftn
+from scipy.interpolate import interpn
+from scipy.ndimage import gaussian_filter
 from tqdm import tqdm
+
 
 def periodic_padding(arr, pad_width):
     """Apply periodic padding to a 3D array."""
@@ -20,7 +22,7 @@ def periodic_gradient(f, dx):
     padded = periodic_padding(f, pad_width)
     grad = np.zeros((3,) + f.shape)
     for i in range(3):
-        grad[i] = (np.roll(padded, -1, axis=i)[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width] - 
+        grad[i] = (np.roll(padded, -1, axis=i)[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width] -
                    np.roll(padded, 1, axis=i)[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width]) / (2 * dx[i])
     return grad
 
@@ -30,8 +32,8 @@ def periodic_laplacian(f, dx):
     padded = periodic_padding(f, pad_width)
     laplacian = np.zeros_like(f)
     for i in range(3):
-        laplacian += (np.roll(padded, -1, axis=i)[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width] - 
-                      2*padded[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width] + 
+        laplacian += (np.roll(padded, -1, axis=i)[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width] -
+                      2*padded[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width] +
                       np.roll(padded, 1, axis=i)[pad_width:-pad_width, pad_width:-pad_width, pad_width:-pad_width]) / dx[i]**2
     return laplacian
 
