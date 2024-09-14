@@ -11,7 +11,7 @@ import spglib
 from tqdm import tqdm
 
 def periodic_padding(arr, pad_width):
-    """Apply periodic padding to a 3D array."""
+    """ Apply periodic padding to a 3D array. """
     return np.pad(arr, pad_width, mode='wrap')
 
 def periodic_gradient(f, dx):
