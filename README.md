@@ -19,7 +19,7 @@ This is for personal use so there is no CLI.
 1. **Run**: 
    - **Script**: `elf.py`
    - **Description**: Reads Wannier function `.xsf` files, computes the ELF, and saves it to a `.xsf` file. Need options file `options.dat`. 
-   - `options.dat` allows settings for KE density symmetrization (not recommended for calculating ELF), interpolation (recommended), normalization (not needed, here for a sanity check), use_fft (use fft to calculate D -> highly recommended).
+   - `options.dat` allows settings for KE density symmetrization (necessary for calculating ELF, but one can check what happens otherwise), interpolation (recommended), normalization (not needed, here for a sanity check), use_fft (use fft to calculate D -> highly recommended).
    - **Output**: `elf.xsf`
 
 2. **Visualization**:
