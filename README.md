@@ -16,24 +16,32 @@ $$ELF\ (r) = \frac{1}{1 + \bigg(\frac{D}{D_H}\bigg)^2} .$$
  
 This is for personal use so there is no CLI.
 
-1. **Run**: 
-   - **Script**: `elf.py`
-   - **Description**: Reads Wannier function `.xsf` files, computes the ELF, and saves it to a `.xsf` file. Need options file `options.dat`. 
-   - `options.dat` allows settings for KE density symmetrization (necessary for calculating ELF, but one can check what happens otherwise), interpolation (recommended), normalization (not needed, here for a sanity check), use_fft (use fft to calculate D -> highly recommended).
-   - **Output**: `elf.xsf`
+Run:
 
-2. **Visualization**:
-   - **Script**: `plot_slice.py`
-   - **Description**: Plots slices of ELF along different planes (XY, YZ, ZX) at depth = 0.5.
-   - **Output**: Writes .png files.
+```bash
+python elf.py "wannier*.xsf" --symmetrization-method=reciprocal
+```
 
-3. **VESTA/pyMOL/VMD/Ovito**:
-   - Visualize the 'elf.xsf' file in anything that supports it.
+for reciprocal space symmetrization of density, density gradients and kinetic energy density
+(highly preferred to obtain small errors after symmetrization).
 
-4. **Interactive slice**:
-   - **Script**: `interactive_slice.py`
-   - **Description**: Provides interactive visualization of ELF slices using Plotly, allowing exploration along different planes (XY, YZ, ZX).
-   - **Output**: Interactive plot displayed in a web browser.
+```bash
+python elf.py "wannier*.xsf" --symmetrization-method=real
+```
+
+for real space symmetrization of density, density gradients and kinetic energy density
+(highly preferred to obtain small errors after symmetrization).
+
+
+## Input
+
+Needs wannier*.xsf files generated via VASP
+
+## Output
+
+ELF.xsf and all scalar fields needed to calculate the ELF.
+
+Can be visualized by VESTA, CrystalMaker, or any other viewer for scalar fields
 
 ## Requirements
 
@@ -42,8 +50,6 @@ This is for personal use so there is no CLI.
   - NumPy: For numerical calculations.
   - Spglib: For symmetrizing charge density.
   - tqdm: Progressbar
-  - Matplotlib: For static plotting (optional).
-  - Plotly: For interactive visualization (optional).
 
 ## Installation
 
@@ -52,4 +58,5 @@ Ensure all required Python libraries are installed:
 ```bash
 python -m venv ~/.venv/wannier_elf
 source ~/.venv/wannier_elf/bin/activate
-python -m pip install ase numpy matplotlib plotly spglib tqdm
+python -m pip install ase numpy spglib tqdm
+```
