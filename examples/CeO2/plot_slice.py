@@ -42,9 +42,9 @@ def main():
     elf_shape = elf_data.shape
 
     # Example: Choose a plane index for slicing (e.g., middle of each dimension)
-    xy_plane_index = elf_shape[2] // 2  # Middle of z-axis
-    yz_plane_index = elf_shape[0] // 2  # Middle of x-axis
-    zx_plane_index = elf_shape[1] // 2  # Middle of y-axis
+    xy_plane_index = elf_shape[2] // 4  # 25% of z-axis
+    yz_plane_index = elf_shape[0] // 4  # 25% of x-axis
+    zx_plane_index = elf_shape[1] // 4  # 25% of y-axis
 
     # Extract slices
     xy_slice = extract_slice(elf_data, xy_plane_index, axis=2)
