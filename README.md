@@ -32,7 +32,7 @@ python elf.py "wannier*.xsf" --symmetrization-method=real
 ```
 
 for real space symmetrization of density, density gradients and kinetic energy density
-(highly preferred to obtain small errors after symmetrization).
+(not preferred unless very dense real-space fields are available).
 
 
 ## Input
