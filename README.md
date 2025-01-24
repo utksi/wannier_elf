@@ -2,6 +2,8 @@
 
 Calculates ELF (and all the stuff in between wannier functions and ELF) with wannier orbitals.
 
+For details, see the blog post here: https://utkarsh.science/blog/2024/wannier_elf/
+
 ## What?
 
 Given a set of wannier functions $\{\{w_n(\mathbf{r})\}\}$, we can get [See Nature, 371(1994)683-686](https://www.nature.com/articles/371683a0) for a non spin-polarized system:
