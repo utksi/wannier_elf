@@ -2,7 +2,7 @@
 
 Calculates ELF (and all the stuff in between wannier functions and ELF) with wannier orbitals.
 
-For details, see the blog post here: https://utkarsh.science/blog/2024/wannier_elf/
+For details, see the blog post [here](https://utkarsh.science/blog/2024/wannier_elf)
 
 ## What?
 
